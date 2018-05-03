@@ -6,4 +6,6 @@
     <string name="view_daily_water_content">View Daily Water Content</string>
     <string name="tips_about_water_content">Tips About Water Content</string>
     <string name="settings">Settings</string>
+    <string name="open">Open</string>
+    <string name="closed">Closed</string>
 </resources>

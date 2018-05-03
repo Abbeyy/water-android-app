@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/home_title"
+            android:title="@string/home"
+            android:padding="10dp"/>
+
+        <item
+            android:id="@+id/update_water_content_title"
+            android:title="@string/update_water_content"
+            android:padding="10dp"/>
+
+        <item
+            android:id="@+id/view_daily_water_content_title"
+            android:title="@string/view_daily_water_content"
+            android:padding="10dp"/>
+
+        <item
+            android:id="@+id/tips_title"
+            android:title="@string/tips_about_water_content"
+            android:padding="10dp"/>
+
+        <item
+            android:id="@+id/settings_title"
+            android:title="@string/settings"
+            android:padding="10dp"/>
+    </group>
+
+</menu>

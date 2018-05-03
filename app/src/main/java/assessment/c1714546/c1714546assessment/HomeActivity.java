@@ -1,6 +1,11 @@
 package assessment.c1714546.c1714546assessment;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -15,15 +20,30 @@ import assessment.c1714546.c1714546assessment.tipsAboutWaterContent.TipsAboutDri
 import assessment.c1714546.c1714546assessment.updateWaterContent.UpdateWaterContentActivity;
 import assessment.c1714546.c1714546assessment.viewWaterContent.ViewDailyWaterContentActivity;
 
-public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
+public class HomeActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
+    private DrawerLayout drawerLout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.drawer_layout);
 
         Toolbar myToolbar = (Toolbar)findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
+
+        this.drawerLout = (DrawerLayout)this.findViewById(R.id.nav_drawer_layout);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this,
+                this.drawerLout,
+                myToolbar,
+                R.string.open,
+                R.string.closed);
+        this.drawerLout.addDrawerListener(toggle);
+        toggle.syncState();
+
+        android.support.design.widget.NavigationView navView = (NavigationView)findViewById(R.id.nav_view);
+        navView.setNavigationItemSelectedListener(this);
 
         // Grabbing ImageView widgets to be
         // able to add a user's onClick to them.
@@ -99,4 +119,39 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        int itemID = item.getItemId();
+
+        switch (itemID) {
+            case R.id.home_title :
+                Toast.makeText(this, "Remaining on Home page...", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.update_water_content_title :
+                Toast.makeText(this, "Launching update water content...", Toast.LENGTH_SHORT).show();
+                Intent launchUpdateWaterContentActivity = new Intent(this, UpdateWaterContentActivity.class);
+                startActivity(launchUpdateWaterContentActivity);
+                break;
+            case R.id.view_daily_water_content_title :
+                Toast.makeText(this, "Launching view daily water content...", Toast.LENGTH_SHORT).show();
+                Intent launchViewDailyWaterContentActivity = new Intent(this, ViewDailyWaterContentActivity.class);
+                startActivity(launchViewDailyWaterContentActivity);
+                break;
+            case R.id.tips_title :
+                Toast.makeText(this, "Launching tips about water content...", Toast.LENGTH_SHORT).show();
+                Intent launchTipsAboutWaterContentActivity = new Intent(this, TipsAboutDrinkingWaterActivity.class);
+                startActivity(launchTipsAboutWaterContentActivity);
+                break;
+            case R.id.settings_title :
+                Toast.makeText(this, "Launching settings...", Toast.LENGTH_SHORT).show();
+                Intent launchSettingsForUserActivity = new Intent(this, SettingsForUserActivity.class);
+                startActivity(launchSettingsForUserActivity);
+                break;
+            default :
+                break;
+        }
+
+        drawerLout.closeDrawer(GravityCompat.START);
+        return false;
+    }
 }
