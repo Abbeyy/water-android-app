@@ -19,4 +19,10 @@
     <string name="tip_three">Tip #3: If you\'re bored, a little sugar won\'t hurt you! Have a small, flavoured glass of water during the day to break things up.</string>
     <string name="tip_four">Tip #4: Don\'t forget to eat. It\'s all well and good drinking lot\'s of water, but don\'t do it in replacement of meals!</string>
     <string name="tip_five">Tip #5: You could always imagine you\'re just sipping a Pina Colada. Unless, of course, that makes you crave one too badly that you\'ll actually go get one...</string>
+    <string name="share_findings">Share your findings!</string>
+    <string name="who_do_you_want_to_email">Who do you want to email?</string>
+    <string name="enter_email_address_here">Enter email address here...</string>
+    <string name="what_do_you_want_to_share">What do you want to share?</string>
+    <string name="share">Share</string>
+    <string name="write_your_message_here">Write your message here...</string>
 </resources>

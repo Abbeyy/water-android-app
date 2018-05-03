@@ -2,6 +2,61 @@
 <android.support.v7.widget.LinearLayoutCompat
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="15dp">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:textSize="@dimen/twentytwo_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/share_findings"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:textSize="@dimen/twenty_dp_textsizing"
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/who_do_you_want_to_email"/>
+
+    <android.support.v7.widget.AppCompatEditText
+        android:textSize="@dimen/twenty_dp_textsizing"
+        android:lines="1"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_email_address_here"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/what_do_you_want_to_share"/>
+
+    <android.support.v7.widget.AppCompatEditText
+        android:textSize="@dimen/twenty_dp_textsizing"
+        android:lines="1"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/write_your_message_here"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="40dp" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/share"
+        />
 
 </android.support.v7.widget.LinearLayoutCompat>
