@@ -25,6 +25,7 @@
         android:text="@string/who_do_you_want_to_email"/>
 
     <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/email_content"
         android:textSize="@dimen/twenty_dp_textsizing"
         android:lines="1"
         android:padding="10dp"
@@ -42,6 +43,7 @@
         android:text="@string/what_do_you_want_to_share"/>
 
     <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/message_content"
         android:textSize="@dimen/twenty_dp_textsizing"
         android:lines="1"
         android:padding="10dp"
@@ -54,9 +56,16 @@
         android:layout_height="40dp" />
 
     <android.support.v7.widget.AppCompatButton
+        android:id="@+id/send_email_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/share"
         />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/reset_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reset"/>
 
 </android.support.v7.widget.LinearLayoutCompat>

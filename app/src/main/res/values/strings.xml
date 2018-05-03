@@ -25,4 +25,8 @@
     <string name="what_do_you_want_to_share">What do you want to share?</string>
     <string name="share">Share</string>
     <string name="write_your_message_here">Write your message here...</string>
+    <string name="reset">Reset</string>
+    <string name="no_email_client">No email client is installed</string>
+    <string name="enter_a_msg_warning">Please enter a message!</string>
+    <string name="specify_email_warning">Please specify an email address!</string>
 </resources>
