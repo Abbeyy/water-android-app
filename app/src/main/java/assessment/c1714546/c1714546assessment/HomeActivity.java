@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -71,7 +72,15 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         launchSettingsForUser.setOnClickListener(this);
 
         generateDate();
-        Log.i("Todays date is: ", date.getString("today", "error"));
+
+        String content = "Don't forget to make an entry for your water content today!";
+
+//        NotificationCompat.Builder notifBuilder = new NotificationCompat.Builder(this, "WaterLifeOne")
+//                .setSmallIcon(R.drawable.ic_water_content_24dp)
+//                .setContentTitle("Water Life Daily Consumption")
+//                .setStyle(new NotificationCompat.BigTextStyle()
+//                        .bigText(content))
+//                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
     }
 
     @Override
