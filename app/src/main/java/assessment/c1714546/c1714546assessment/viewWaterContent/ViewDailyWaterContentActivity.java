@@ -20,6 +20,7 @@ import assessment.c1714546.c1714546assessment.updateWaterContent.WaterContentRec
 public class ViewDailyWaterContentActivity extends AppCompatActivity {
     private String timeNow;
     private SharedPreferences todaysWaterHistory;
+    private AppCompatTextView genTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +34,8 @@ public class ViewDailyWaterContentActivity extends AppCompatActivity {
 
         int glassesDrunk = this.todaysWaterHistory.getInt("drunk", -1);
 
-        AppCompatTextView genTime = (AppCompatTextView)findViewById(R.id.gen_time);
-        generateTime(genTime);
+        genTime = (AppCompatTextView)findViewById(R.id.gen_time);
+        generateTime();
 
         AppCompatTextView showConsumption = (AppCompatTextView)findViewById(R.id.show_consumption);
         displayConsumption(showConsumption, glassesDrunk);
@@ -43,7 +44,7 @@ public class ViewDailyWaterContentActivity extends AppCompatActivity {
     // The below annotation rule should mean
     // this method works for devices using API level 26+.
     @TargetApi(26)
-    public void generateTime(AppCompatTextView genTime) {
+    public void generateTime() {
         LocalTime currentTime = LocalTime.now();
         DateTimeFormatter formattedTime = DateTimeFormatter.ofPattern("HH:mm:ss a");
         this.timeNow = currentTime.format(formattedTime);
@@ -52,6 +53,12 @@ public class ViewDailyWaterContentActivity extends AppCompatActivity {
 
     public void displayConsumption(AppCompatTextView showConsumption, int glassesDrunk) {
         showConsumption.setText("You have drunk " + glassesDrunk + " glasses of water so far.");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        generateTime();
     }
 
 }

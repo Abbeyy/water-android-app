@@ -33,6 +33,7 @@ public class UpdateWaterContentActivity extends AppCompatActivity implements Vie
     private AppCompatButton viewActivityBtn;
     private List<WaterContentRecord> recordObjects = new ArrayList<WaterContentRecord>();
     private int totalGlassesDrunk;
+    private AppCompatTextView genTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +53,8 @@ public class UpdateWaterContentActivity extends AppCompatActivity implements Vie
         Toolbar myToolbar = (Toolbar)findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-        AppCompatTextView genTime = (AppCompatTextView)findViewById(R.id.gen_time);
-        generateTime(genTime);
+        genTime = (AppCompatTextView)findViewById(R.id.gen_time);
+        generateTime();
 
         submitBtn = (AppCompatButton)findViewById(R.id.submit_btn);
         submitBtn.setEnabled(true);
@@ -69,11 +70,11 @@ public class UpdateWaterContentActivity extends AppCompatActivity implements Vie
     // The below annotation rule should mean
     // this method works for devices using API level 26+.
     @TargetApi(26)
-    public void generateTime(AppCompatTextView genTime) {
+    public void generateTime() {
         LocalTime currentTime = LocalTime.now();
         DateTimeFormatter formattedTime = DateTimeFormatter.ofPattern("HH:mm:ss a");
         this.timeNow = currentTime.format(formattedTime);
-        genTime.setText("Time:" + timeNow);
+        this.genTime.setText("Time:" + timeNow);
     }
 
     @Override
@@ -135,6 +136,12 @@ public class UpdateWaterContentActivity extends AppCompatActivity implements Vie
             editAddWaterHistory.putInt("drunk", result+numberOfGlasses);
         }
         editAddWaterHistory.apply();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        generateTime();
     }
 
 }
