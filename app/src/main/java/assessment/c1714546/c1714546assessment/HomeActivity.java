@@ -3,6 +3,7 @@ package assessment.c1714546.c1714546assessment;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -18,6 +19,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        Toolbar myToolbar = (Toolbar)findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+
+        // Grabbing ImageView widgets to be
+        // able to add a user's onClick to them.
         ImageView launchUpdateWaterContent = (ImageView)findViewById(R.id.water_content_home_button);
         launchUpdateWaterContent.setOnClickListener(this);
         ImageView launchViewDailyWaterContent = (ImageView)findViewById(R.id.daily_content_home_button);

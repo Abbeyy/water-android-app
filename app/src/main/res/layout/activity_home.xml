@@ -9,6 +9,15 @@
     android:gravity="center_horizontal"
     tools:context="assessment.c1714546.c1714546assessment.HomeActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@color/BM"
+        >
+
+    </android.support.v7.widget.Toolbar>
+
     <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
