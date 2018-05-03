@@ -27,12 +27,12 @@ public class UpdateWaterContentActivity extends AppCompatActivity implements Vie
     private WaterContentDatabase wcd;
     private String timeNow;
     private AppCompatEditText getGlasses;
-    private SharedPreferences alreadyClicked;
     private SharedPreferences todaysWaterHistory;
     private SharedPreferences.Editor editAddWaterHistory;
     private AppCompatButton submitBtn;
     private AppCompatButton viewActivityBtn;
     private List<WaterContentRecord> recordObjects = new ArrayList<WaterContentRecord>();
+    private int totalGlassesDrunk;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +48,6 @@ public class UpdateWaterContentActivity extends AppCompatActivity implements Vie
         //.fallbackToDestructiveMigration()
 
         // Setup SharedPreferences.
-        alreadyClicked = getPreferences(Context.MODE_PRIVATE);
         todaysWaterHistory = getSharedPreferences("waterHistory", Context.MODE_PRIVATE);
         editAddWaterHistory = todaysWaterHistory.edit();
 
@@ -100,8 +99,9 @@ public class UpdateWaterContentActivity extends AppCompatActivity implements Vie
                 final WaterContentRecord record = new WaterContentRecord(numberOfGlasses, time);
                 recordObjects.add(record);
 
-                //Use SharedPrefs to store user's content from this entry.
-                updateSharedPreferences(record, recordObjects.size());
+                //Store the total number of glasses
+                // drunk on sharedprefs for use in other activity...
+                updateSharedPrefs(numberOfGlasses);
 
                 AsyncTask.execute(new Runnable() {
                     @Override
@@ -128,41 +128,15 @@ public class UpdateWaterContentActivity extends AppCompatActivity implements Vie
 
     }
 
-    public void updateSharedPreferences(WaterContentRecord record, int numberOfRecords) {
-        List<String> info = new ArrayList<String>();
-        int counter = 1;
-
-        String valueGlasses = todaysWaterHistory.getString("1glasses", "error");
-        if (valueGlasses == "error") {
-            //nothing yet stored today.
-            editAddWaterHistory.putString(Integer.toString(counter)+"glasses", Integer.toString(record.getNumberOfGlasses()));
-            editAddWaterHistory.putString(Integer.toString(counter)+"time", record.getTimeOfConsumption());
-            editAddWaterHistory.apply();
+    public void updateSharedPrefs(int numberOfGlasses) {
+        int result = todaysWaterHistory.getInt("drunk", -1);
+        if (result == -1) {
+            editAddWaterHistory.putInt("drunk", numberOfGlasses);
         } else {
-            //Retrieve whatever is in Shared Prefs.
-            for (int r = 1; r == numberOfRecords; r++) {
-                info.add(todaysWaterHistory.getString(Integer.toString(r)+"glasses", "error"));
-                info.add(todaysWaterHistory.getString(Integer.toString(r)+"time", "error"));
-            }
-
-            //Write it back
             editAddWaterHistory.clear();
-            editAddWaterHistory.apply();
-            for (int e = 1; e == (numberOfRecords*2); e = e+2) {
-                editAddWaterHistory.putString(Integer.toString(counter)+"glasses", info.get(e));
-                editAddWaterHistory.putString(Integer.toString(counter)+"time", info.get(e+1));
-                Log.i("LOOKY", todaysWaterHistory.getString(Integer.toString(counter)+"glasses", "error"));
-                Log.i("LOOKY", todaysWaterHistory.getString(Integer.toString(counter)+"time", "error"));
-                counter++;
-            }
-            editAddWaterHistory.apply();
-
-            //Add extra info
-            editAddWaterHistory.putString(Integer.toString(numberOfRecords)+"glasses", Integer.toString(record.getNumberOfGlasses()));
-            editAddWaterHistory.putString(Integer.toString(numberOfRecords)+"time", record.getTimeOfConsumption());
-            editAddWaterHistory.apply();
+            editAddWaterHistory.putInt("drunk", result+numberOfGlasses);
         }
-
+        editAddWaterHistory.apply();
     }
 
 }

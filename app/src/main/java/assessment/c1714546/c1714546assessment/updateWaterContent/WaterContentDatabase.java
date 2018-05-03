@@ -7,7 +7,7 @@ import android.arch.persistence.room.RoomDatabase;
  * Created by c1714546 on 5/3/2018.
  */
 
-@Database(entities = WaterContentRecord.class, version = 5)
+@Database(entities = WaterContentRecord.class, version = 6)
 public abstract class WaterContentDatabase extends RoomDatabase {
     public abstract WaterContentDao waterContentDao();
 }

@@ -7,11 +7,9 @@
     android:layout_height="match_parent"
     tools:context="assessment.c1714546.c1714546assessment.tipsAboutWaterContent.TipsAboutDrinkingWaterActivity">
 
-    <RelativeLayout
+    <FrameLayout
         android:id="@+id/tips_fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </RelativeLayout>
+        android:layout_height="match_parent" />
 
 </android.support.constraint.ConstraintLayout>
