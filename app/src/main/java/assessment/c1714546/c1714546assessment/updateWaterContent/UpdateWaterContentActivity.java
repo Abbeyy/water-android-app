@@ -17,6 +17,7 @@ import android.view.View;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 import assessment.c1714546.c1714546assessment.R;
@@ -31,7 +32,7 @@ public class UpdateWaterContentActivity extends AppCompatActivity implements Vie
     private SharedPreferences.Editor editAddWaterHistory;
     private AppCompatButton submitBtn;
     private AppCompatButton viewActivityBtn;
-    private int recordId;
+    private List<WaterContentRecord> recordObjects = new ArrayList<WaterContentRecord>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +43,9 @@ public class UpdateWaterContentActivity extends AppCompatActivity implements Vie
         this.wcd = Room.databaseBuilder(
                 getApplicationContext(),
                 WaterContentDatabase.class,
-                "my_database").build();
+                "my_database").fallbackToDestructiveMigration().build();
+
+        //.fallbackToDestructiveMigration()
 
         // Setup SharedPreferences.
         alreadyClicked = getPreferences(Context.MODE_PRIVATE);
@@ -92,16 +95,13 @@ public class UpdateWaterContentActivity extends AppCompatActivity implements Vie
                 //Use Room to communicate with SQLite DB
                 //to store history of user's water content
                 //consumption.
-                String usersEntry = this.getGlasses.getText().toString();
-                final int numberOfGlasses = Integer.parseInt(usersEntry);
+                final int numberOfGlasses = Integer.parseInt(this.getGlasses.getText().toString());
                 final String time = this.timeNow;
                 final WaterContentRecord record = new WaterContentRecord(numberOfGlasses, time);
+                recordObjects.add(record);
 
                 //Use SharedPrefs to store user's content from this entry.
-                recordId++;
-                editAddWaterHistory.putString(Integer.toString(recordId)+"glasses", Integer.toString(record.getNumberOfGlasses()));
-                editAddWaterHistory.putString(Integer.toString(recordId)+"time", record.getTimeOfConsumption());
-                editAddWaterHistory.apply();
+                updateSharedPreferences(record, recordObjects.size());
 
                 AsyncTask.execute(new Runnable() {
                     @Override
@@ -125,6 +125,43 @@ public class UpdateWaterContentActivity extends AppCompatActivity implements Vie
                 break;
         }
 
+
+    }
+
+    public void updateSharedPreferences(WaterContentRecord record, int numberOfRecords) {
+        List<String> info = new ArrayList<String>();
+        int counter = 1;
+
+        String valueGlasses = todaysWaterHistory.getString("1glasses", "error");
+        if (valueGlasses == "error") {
+            //nothing yet stored today.
+            editAddWaterHistory.putString(Integer.toString(counter)+"glasses", Integer.toString(record.getNumberOfGlasses()));
+            editAddWaterHistory.putString(Integer.toString(counter)+"time", record.getTimeOfConsumption());
+            editAddWaterHistory.apply();
+        } else {
+            //Retrieve whatever is in Shared Prefs.
+            for (int r = 1; r == numberOfRecords; r++) {
+                info.add(todaysWaterHistory.getString(Integer.toString(r)+"glasses", "error"));
+                info.add(todaysWaterHistory.getString(Integer.toString(r)+"time", "error"));
+            }
+
+            //Write it back
+            editAddWaterHistory.clear();
+            editAddWaterHistory.apply();
+            for (int e = 1; e == (numberOfRecords*2); e = e+2) {
+                editAddWaterHistory.putString(Integer.toString(counter)+"glasses", info.get(e));
+                editAddWaterHistory.putString(Integer.toString(counter)+"time", info.get(e+1));
+                Log.i("LOOKY", todaysWaterHistory.getString(Integer.toString(counter)+"glasses", "error"));
+                Log.i("LOOKY", todaysWaterHistory.getString(Integer.toString(counter)+"time", "error"));
+                counter++;
+            }
+            editAddWaterHistory.apply();
+
+            //Add extra info
+            editAddWaterHistory.putString(Integer.toString(numberOfRecords)+"glasses", Integer.toString(record.getNumberOfGlasses()));
+            editAddWaterHistory.putString(Integer.toString(numberOfRecords)+"time", record.getTimeOfConsumption());
+            editAddWaterHistory.apply();
+        }
 
     }
 

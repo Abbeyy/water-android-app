@@ -1,6 +1,7 @@
 package assessment.c1714546.c1714546assessment.updateWaterContent;
 
 import android.arch.persistence.room.Dao;
+import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
@@ -21,5 +22,8 @@ public interface WaterContentDao {
 
     @Insert
     void insertAll(WaterContentRecord... waterContentRecords);
+
+    @Query("DELETE FROM watercontentrecord")
+    void getRidOfTable();
 
 }
