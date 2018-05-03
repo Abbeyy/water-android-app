@@ -13,4 +13,10 @@
     <string name="number_full_glasses">(Please enter an integer for the number of full glasses)</string>
     <string name="your_daily_water_content_breakdown">Your daily water content breakdown:</string>
     <string name="todays_consumption_btn">View today's history</string>
+    <string name="water_consumption_tips">Water Consumption Tips</string>
+    <string name="tip_one">Tip #1: Drinking a pint of water in one go is not easy. Our advice is to sip at your glass! You could use a straw to help with this.</string>
+    <string name="tip_two">Tip #2: Pace yourself through the day. Use a water bottle to mark where you want to be at what time.</string>
+    <string name="tip_three">Tip #3: If you\'re bored, a little sugar won\'t hurt you! Have a small, flavoured glass of water during the day to break things up.</string>
+    <string name="tip_four">Tip #4: Don\'t forget to eat. It\'s all well and good drinking lot\'s of water, but don\'t do it in replacement of meals!</string>
+    <string name="tip_five">Tip #5: You could always imagine you\'re just sipping a Pina Colada. Unless, of course, that makes you crave one too badly that you\'ll actually go get one...</string>
 </resources>
