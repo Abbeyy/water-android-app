@@ -19,7 +19,8 @@
         <activity android:name=".updateWaterContent.UpdateWaterContentActivity" />
         <activity android:name=".viewWaterContent.ViewDailyWaterContentActivity" />
         <activity android:name=".tipsAboutWaterContent.TipsAboutDrinkingWaterActivity" />
-        <activity android:name=".settingsForApp.SettingsForUserActivity"></activity>
+        <activity android:name=".settingsForApp.SettingsForUserActivity" />
+        <activity android:name=".viewWaterContent.ViewDailyWaterDetailsActivity"></activity>
     </application>
 
 </manifest>
