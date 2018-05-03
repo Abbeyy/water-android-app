@@ -25,6 +25,7 @@ import java.util.Date;
 import assessment.c1714546.c1714546assessment.settingsForApp.SettingsForUserActivity;
 import assessment.c1714546.c1714546assessment.tipsAboutWaterContent.TipsAboutDrinkingWaterActivity;
 import assessment.c1714546.c1714546assessment.updateWaterContent.UpdateWaterContentActivity;
+import assessment.c1714546.c1714546assessment.updateWaterContent.WaterContentRecord;
 import assessment.c1714546.c1714546assessment.viewWaterContent.ViewDailyWaterContentActivity;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
@@ -189,6 +190,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 editDate.clear();
                 editDate.putString("today", todaysDate);
                 editDate.apply();
+                //reset the number of record objects for today.
+                WaterContentRecord.numOfRecs = 0;
             }
             //else, all is well! same date!
         }

@@ -10,6 +10,7 @@ import android.arch.persistence.room.PrimaryKey;
 
 @Entity
 public class WaterContentRecord {
+    public static int numOfRecs;
 
     @PrimaryKey(autoGenerate = true)
     private int id;
@@ -23,6 +24,7 @@ public class WaterContentRecord {
     public WaterContentRecord(int numberOfGlasses, String timeOfConsumption) {
         this.numberOfGlasses = numberOfGlasses;
         this.timeOfConsumption = timeOfConsumption;
+        numOfRecs++;
     }
 
     public int getId() {
@@ -48,4 +50,5 @@ public class WaterContentRecord {
     public void setTimeOfConsumption(String timeOfConsumption) {
         this.timeOfConsumption = timeOfConsumption;
     }
+
 }

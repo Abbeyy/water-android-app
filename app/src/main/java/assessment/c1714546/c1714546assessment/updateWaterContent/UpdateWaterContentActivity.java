@@ -28,7 +28,7 @@ public class UpdateWaterContentActivity extends AppCompatActivity implements Vie
     private SharedPreferences todaysWaterHistory;
     private SharedPreferences.Editor editAddWaterHistory;
     private AppCompatButton submitBtn;
-    private static int recordId = 0;
+    private int recordId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,11 +83,16 @@ public class UpdateWaterContentActivity extends AppCompatActivity implements Vie
         String usersEntry = this.getGlasses.getText().toString();
         final int numberOfGlasses = Integer.parseInt(usersEntry);
         final String time = this.timeNow;
+        final WaterContentRecord record = new WaterContentRecord(numberOfGlasses, time);
+
+        //Use SharedPrefs to store user's content from this entry.
+        recordId++;
+        editAddWaterHistory.putString(Integer.toString(recordId)+"glasses", Integer.toString(record.getNumberOfGlasses()));
+        editAddWaterHistory.putString(Integer.toString(recordId)+"time", record.getTimeOfConsumption());
 
                 AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                WaterContentRecord record = new WaterContentRecord(numberOfGlasses, time);
                 wcd.waterContentDao().insertAll(record);
 
                 List<WaterContentRecord> databaseContents = wcd.waterContentDao().getAllWaterContentRecords();
@@ -98,10 +103,6 @@ public class UpdateWaterContentActivity extends AppCompatActivity implements Vie
                 }
             }
         });
-
-        //Use SharedPrefs to store user's content from this entry.
-        editAddWaterHistory.putString(Integer.toString(recordId)+"glasses", Integer.toString(numberOfGlasses));
-        editAddWaterHistory.putString(Integer.toString(recordId)+"time", time);
-        recordId++;
     }
+
 }
