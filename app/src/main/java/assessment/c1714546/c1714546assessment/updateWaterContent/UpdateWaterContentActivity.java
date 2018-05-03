@@ -3,6 +3,7 @@ package assessment.c1714546.c1714546assessment.updateWaterContent;
 import android.annotation.TargetApi;
 import android.arch.persistence.room.Room;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -19,6 +20,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import assessment.c1714546.c1714546assessment.R;
+import assessment.c1714546.c1714546assessment.viewWaterContent.ViewDailyWaterContentActivity;
 
 public class UpdateWaterContentActivity extends AppCompatActivity implements View.OnClickListener {
     private WaterContentDatabase wcd;
@@ -28,6 +30,7 @@ public class UpdateWaterContentActivity extends AppCompatActivity implements Vie
     private SharedPreferences todaysWaterHistory;
     private SharedPreferences.Editor editAddWaterHistory;
     private AppCompatButton submitBtn;
+    private AppCompatButton viewActivityBtn;
     private int recordId;
 
     @Override
@@ -56,6 +59,10 @@ public class UpdateWaterContentActivity extends AppCompatActivity implements Vie
         submitBtn.setEnabled(true);
         submitBtn.setOnClickListener(this);
 
+        viewActivityBtn = (AppCompatButton)findViewById(R.id.launch_view_activity_btn);
+        viewActivityBtn.setEnabled(false);
+        viewActivityBtn.setOnClickListener(this);
+
         getGlasses = (AppCompatEditText)findViewById(R.id.get_glasses);
     }
 
@@ -71,38 +78,53 @@ public class UpdateWaterContentActivity extends AppCompatActivity implements Vie
 
     @Override
     public void onClick(View v) {
-        //Disables button to ensure user can
-        //only enter one entry per activity-load
-        //due to the time being generated on
-        //the loading of the activity.
-        submitBtn.setEnabled(false);
+        int btnId = v.getId();
 
-        //Use Room to communicate with SQLite DB
-        //to store history of user's water content
-        //consumption.
-        String usersEntry = this.getGlasses.getText().toString();
-        final int numberOfGlasses = Integer.parseInt(usersEntry);
-        final String time = this.timeNow;
-        final WaterContentRecord record = new WaterContentRecord(numberOfGlasses, time);
+        switch (btnId) {
+            case R.id.submit_btn :
+                //Disables button to ensure user can
+                //only enter one entry per activity-load
+                //due to the time being generated on
+                //the loading of the activity.
+                submitBtn.setEnabled(false);
+                viewActivityBtn.setEnabled(true);
 
-        //Use SharedPrefs to store user's content from this entry.
-        recordId++;
-        editAddWaterHistory.putString(Integer.toString(recordId)+"glasses", Integer.toString(record.getNumberOfGlasses()));
-        editAddWaterHistory.putString(Integer.toString(recordId)+"time", record.getTimeOfConsumption());
+                //Use Room to communicate with SQLite DB
+                //to store history of user's water content
+                //consumption.
+                String usersEntry = this.getGlasses.getText().toString();
+                final int numberOfGlasses = Integer.parseInt(usersEntry);
+                final String time = this.timeNow;
+                final WaterContentRecord record = new WaterContentRecord(numberOfGlasses, time);
+
+                //Use SharedPrefs to store user's content from this entry.
+                recordId++;
+                editAddWaterHistory.putString(Integer.toString(recordId)+"glasses", Integer.toString(record.getNumberOfGlasses()));
+                editAddWaterHistory.putString(Integer.toString(recordId)+"time", record.getTimeOfConsumption());
 
                 AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-                wcd.waterContentDao().insertAll(record);
+                    @Override
+                    public void run() {
+                        wcd.waterContentDao().insertAll(record);
 
-                List<WaterContentRecord> databaseContents = wcd.waterContentDao().getAllWaterContentRecords();
-                for (WaterContentRecord aRecord : databaseContents) {
-                    Log.i("DATABASE", "Record:" + aRecord.getId());
-                    Log.i("DATABASE", "Record:" + aRecord.getTimeOfConsumption());
-                    Log.i("DATABASE", "Record:" + aRecord.getNumberOfGlasses());
-                }
-            }
-        });
+                        List<WaterContentRecord> databaseContents = wcd.waterContentDao().getAllWaterContentRecords();
+                        for (WaterContentRecord aRecord : databaseContents) {
+                            Log.i("DATABASE", "Record:" + aRecord.getId());
+                            Log.i("DATABASE", "Record:" + aRecord.getTimeOfConsumption());
+                            Log.i("DATABASE", "Record:" + aRecord.getNumberOfGlasses());
+                        }
+                    }
+                });
+                break;
+            case R.id.launch_view_activity_btn :
+                Intent launchViewDailyWaterContentActivity = new Intent(this, ViewDailyWaterContentActivity.class);
+                startActivity(launchViewDailyWaterContentActivity);
+                break;
+            default :
+                break;
+        }
+
+
     }
 
 }

@@ -83,6 +83,12 @@
             android:layout_height="wrap_content"
             android:text="Submit"/>
 
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/launch_view_activity_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/todays_consumption_btn"/>
+
     </android.support.v7.widget.LinearLayoutCompat>
 
 </android.support.v7.widget.LinearLayoutCompat>

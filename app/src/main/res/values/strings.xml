@@ -12,4 +12,5 @@
     <string name="water_since_last_entry">How much water have you had since you last recorded an entry?</string>
     <string name="number_full_glasses">(Please enter an integer for the number of full glasses)</string>
     <string name="your_daily_water_content_breakdown">Your daily water content breakdown:</string>
+    <string name="todays_consumption_btn">View today's history</string>
 </resources>

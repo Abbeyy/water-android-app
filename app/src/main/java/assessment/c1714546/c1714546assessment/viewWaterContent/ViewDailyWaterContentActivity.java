@@ -1,6 +1,7 @@
 package assessment.c1714546.c1714546assessment.viewWaterContent;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 //import android.support.v7.widget.ListViewCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +56,10 @@ public class ViewDailyWaterContentActivity extends AppCompatActivity {
             for (int r = 0; r<listSize; r++) {
                 entries.add("Entry " + r);
             }
+        } else if (listSize == 0) {
+            Toast.makeText(this, "Please make an entry before viewing your history...", Toast.LENGTH_SHORT).show();
+            Intent launchUpdateWaterContentActivity = new Intent(this, UpdateWaterContentActivity.class);
+            startActivity(launchUpdateWaterContentActivity);
         }
     }
 
