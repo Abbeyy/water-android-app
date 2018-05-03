@@ -1,6 +1,8 @@
 package assessment.c1714546.c1714546assessment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -9,11 +11,16 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import assessment.c1714546.c1714546assessment.settingsForApp.SettingsForUserActivity;
 import assessment.c1714546.c1714546assessment.tipsAboutWaterContent.TipsAboutDrinkingWaterActivity;
@@ -22,11 +29,17 @@ import assessment.c1714546.c1714546assessment.viewWaterContent.ViewDailyWaterCon
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawerLout;
+    private SharedPreferences date;
+    private SharedPreferences.Editor editDate;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.drawer_layout);
+
+        date = getSharedPreferences("todaysDate", Context.MODE_PRIVATE);
+        editDate = date.edit();
 
         Toolbar myToolbar = (Toolbar)findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
@@ -55,6 +68,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         launchTipsAboutWaterContent.setOnClickListener(this);
         ImageView launchSettingsForUser = (ImageView)findViewById(R.id.settings_home_button);
         launchSettingsForUser.setOnClickListener(this);
+
+        generateDate();
+        Log.i("Todays date is: ", date.getString("today", "error"));
     }
 
     @Override
@@ -154,4 +170,28 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         drawerLout.closeDrawer(GravityCompat.START);
         return false;
     }
+
+    public void generateDate() {
+        //Method is key for producing listview of user's
+        //water content consumption for just today.
+
+        Date dateToday = Calendar.getInstance().getTime();
+        SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
+        String todaysDate = format.format(dateToday);
+
+        String globalDateToday = date.getString("today", "error");
+
+        if (globalDateToday == null | globalDateToday == "error") {
+            editDate.putString("today", todaysDate);
+            editDate.apply();
+        } else {
+            if (!globalDateToday.equals(todaysDate)) {
+                editDate.clear();
+                editDate.putString("today", todaysDate);
+                editDate.apply();
+            }
+            //else, all is well! same date!
+        }
+    }
+
 }

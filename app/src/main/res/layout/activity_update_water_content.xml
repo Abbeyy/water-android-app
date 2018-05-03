@@ -67,10 +67,21 @@
             android:text="@string/number_full_glasses"/>
 
         <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/get_glasses"
             android:textSize="@dimen/twenty_dp_textsizing"
             android:lines="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/submit_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"/>
 
     </android.support.v7.widget.LinearLayoutCompat>
 
