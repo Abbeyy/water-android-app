@@ -31,15 +31,18 @@
             android:text="@string/your_daily_water_content_breakdown"
             android:textSize="@dimen/twentytwo_text"/>
 
-        <ListView
-            android:id="@+id/entries_listview"
-            android:layout_width="match_parent"
+        <android.support.v7.widget.AppCompatTextView
+            android:textSize="@dimen/twenty_dp_textsizing"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/gen_time"/>
 
-            android:divider="@android:drawable/divider_horizontal_bright"
-            android:listSelector="@android:color/transparent"
-            android:cacheColorHint="@android:color/transparent"
-            />
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/show_consumption"
+            android:textSize="@dimen/twenty_dp_textsizing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""/>
 
     </android.support.v7.widget.LinearLayoutCompat>
 

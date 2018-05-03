@@ -43,9 +43,7 @@ public class UpdateWaterContentActivity extends AppCompatActivity implements Vie
         this.wcd = Room.databaseBuilder(
                 getApplicationContext(),
                 WaterContentDatabase.class,
-                "my_database").fallbackToDestructiveMigration().build();
-
-        //.fallbackToDestructiveMigration()
+                "my_database").build();
 
         // Setup SharedPreferences.
         todaysWaterHistory = getSharedPreferences("waterHistory", Context.MODE_PRIVATE);
