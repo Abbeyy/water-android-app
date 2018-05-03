@@ -3,4 +3,6 @@
     <dimen name="ten_dp_padding">10dp</dimen>
     <dimen name="twentyeight_text">28sp</dimen>
     <dimen name="twentytwo_text">22sp</dimen>
+    <dimen name="twenty_dp_padding">20dp</dimen>
+    <dimen name="twenty_dp_textsizing">20dp</dimen>
 </resources>

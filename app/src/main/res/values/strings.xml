@@ -8,4 +8,7 @@
     <string name="settings">Settings</string>
     <string name="open">Open</string>
     <string name="closed">Closed</string>
+    <string name="update_daily_water_below">Update your daily water content below:</string>
+    <string name="water_since_last_entry">How much water have you had since you last recorded an entry?</string>
+    <string name="number_full_glasses">(Please enter an integer for the number of full glasses)</string>
 </resources>
