@@ -16,7 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".waterContent.UpdateWaterContentActivity"></activity>
+        <activity android:name=".updateWaterContent.UpdateWaterContentActivity" />
+        <activity android:name=".viewWaterContent.ViewDailyWaterContentActivity" />
+        <activity android:name=".tipsAboutWaterContent.TipsAboutDrinkingWaterActivity" />
+        <activity android:name=".settingsForApp.SettingsForUserActivity"></activity>
     </application>
 
 </manifest>

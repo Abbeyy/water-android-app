@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import assessment.c1714546.c1714546assessment.waterContent.UpdateWaterContentActivity;
+import assessment.c1714546.c1714546assessment.settingsForApp.SettingsForUserActivity;
+import assessment.c1714546.c1714546assessment.tipsAboutWaterContent.TipsAboutDrinkingWaterActivity;
+import assessment.c1714546.c1714546assessment.updateWaterContent.UpdateWaterContentActivity;
+import assessment.c1714546.c1714546assessment.viewWaterContent.ViewDailyWaterContentActivity;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -17,12 +20,37 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         ImageView launchUpdateWaterContent = (ImageView)findViewById(R.id.water_content_home_button);
         launchUpdateWaterContent.setOnClickListener(this);
-//        ImageView launchViewDailyWaterContent = (ImageView)
+        ImageView launchViewDailyWaterContent = (ImageView)findViewById(R.id.daily_content_home_button);
+        launchViewDailyWaterContent.setOnClickListener(this);
+        ImageView launchTipsAboutWaterContent = (ImageView)findViewById(R.id.info_home_button);
+        launchTipsAboutWaterContent.setOnClickListener(this);
+        ImageView launchSettingsForUser = (ImageView)findViewById(R.id.settings_home_button);
+        launchSettingsForUser.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        Intent launchUpdateWaterContentActivity = new Intent(this, UpdateWaterContentActivity.class);
-        startActivity(launchUpdateWaterContentActivity);
+        int imageID = v.getId();
+
+        switch (imageID) {
+            case R.id.water_content_home_button :
+                Intent launchUpdateWaterContentActivity = new Intent(this, UpdateWaterContentActivity.class);
+                startActivity(launchUpdateWaterContentActivity);
+                break;
+            case R.id.daily_content_home_button :
+                Intent launchViewDailyWaterContentActivity = new Intent(this, ViewDailyWaterContentActivity.class);
+                startActivity(launchViewDailyWaterContentActivity);
+                break;
+            case R.id.info_home_button :
+                Intent launchTipsAboutWaterContentActivity = new Intent(this, TipsAboutDrinkingWaterActivity.class);
+                startActivity(launchTipsAboutWaterContentActivity);
+                break;
+            case R.id.settings_home_button :
+                Intent launchSettingsForUserActivity = new Intent(this, SettingsForUserActivity.class);
+                startActivity(launchSettingsForUserActivity);
+                break;
+            default :
+                break;
+        }
     }
 }
