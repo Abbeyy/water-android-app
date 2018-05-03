@@ -25,7 +25,10 @@ public class UpdateWaterContentActivity extends AppCompatActivity implements Vie
     private String timeNow;
     private AppCompatEditText getGlasses;
     private SharedPreferences alreadyClicked;
+    private SharedPreferences todaysWaterHistory;
+    private SharedPreferences.Editor editAddWaterHistory;
     private AppCompatButton submitBtn;
+    private static int recordId = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,8 @@ public class UpdateWaterContentActivity extends AppCompatActivity implements Vie
 
         // Setup SharedPreferences.
         alreadyClicked = getPreferences(Context.MODE_PRIVATE);
+        todaysWaterHistory = getSharedPreferences("waterHistory", Context.MODE_PRIVATE);
+        editAddWaterHistory = todaysWaterHistory.edit();
 
         Toolbar myToolbar = (Toolbar)findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
@@ -95,6 +100,8 @@ public class UpdateWaterContentActivity extends AppCompatActivity implements Vie
         });
 
         //Use SharedPrefs to store user's content from this entry.
-
+        editAddWaterHistory.putString(Integer.toString(recordId)+"glasses", Integer.toString(numberOfGlasses));
+        editAddWaterHistory.putString(Integer.toString(recordId)+"time", time);
+        recordId++;
     }
 }
