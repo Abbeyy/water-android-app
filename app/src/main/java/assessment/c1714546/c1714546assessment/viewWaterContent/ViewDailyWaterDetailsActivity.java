@@ -40,7 +40,7 @@ public class ViewDailyWaterDetailsActivity extends AppCompatActivity {
     }
 
     public void generateDetails() {
-        this.details.add(entryClicked.getString("record", "error"));
+        this.details.add(entryClicked.getString("recordId", "error"));
         this.details.add(entryClicked.getString("glasses", "error"));
         this.details.add(entryClicked.getString("time", "error"));
     }

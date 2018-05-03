@@ -61,7 +61,7 @@ public class ViewDailyWaterContentActivity extends AppCompatActivity implements 
         Log.i("NUM: ", listSize+"!");
 
         if (listSize > 0) {
-            for (int r = 0; r<listSize; r++) {
+            for (int r = 1; r<listSize; r++) {
                 entries.add("Entry " + r);
             }
         } else if (listSize == 0) {
@@ -73,10 +73,7 @@ public class ViewDailyWaterContentActivity extends AppCompatActivity implements 
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        String value = entryClicked.getString("record", "error");
-        if ((value != null) && (value != "error")) {
-            editEntryClicked.clear();
-        }
+        editEntryClicked.clear();
         String recordNum = Integer.toString(position + 1);
         editEntryClicked.putString("recordId", recordNum);
         String glasses = waterHist.getString(recordNum+"glasses", "error");
