@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Water Life</string>
     <string name="get_started">Let\'s get started...</string>
+    <string name="home">Home</string>
+    <string name="update_water_content">Update Water Content</string>
+    <string name="view_daily_water_content">View Daily Water Content</string>
+    <string name="tips_about_water_content">Tips About Water Content</string>
+    <string name="settings">Settings</string>
 </resources>

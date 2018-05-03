@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/home_activity_icon"
+        android:title="@string/home"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/update_water_icon"
+        android:icon="@drawable/ic_water_content_24dp"
+        android:title="@string/update_water_content"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/view_water_icon"
+        android:icon="@drawable/ic_today_black_24dp"
+        android:title="@string/view_daily_water_content"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/tips_icon"
+        android:icon="@drawable/ic_info_black_24dp"
+        android:title="@string/tips_about_water_content"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/settings_icon"
+        android:icon="@drawable/ic_settings_black_24dp"
+        android:title="@string/settings"
+        app:showAsAction="always"/>
+
+</menu>
