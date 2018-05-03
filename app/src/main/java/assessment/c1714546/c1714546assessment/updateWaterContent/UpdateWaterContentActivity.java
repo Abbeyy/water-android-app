@@ -101,6 +101,7 @@ public class UpdateWaterContentActivity extends AppCompatActivity implements Vie
                 recordId++;
                 editAddWaterHistory.putString(Integer.toString(recordId)+"glasses", Integer.toString(record.getNumberOfGlasses()));
                 editAddWaterHistory.putString(Integer.toString(recordId)+"time", record.getTimeOfConsumption());
+                editAddWaterHistory.apply();
 
                 AsyncTask.execute(new Runnable() {
                     @Override
