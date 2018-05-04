@@ -35,4 +35,8 @@
     <string name="what_is_your_name">What is your name?</string>
     <string name="name_setting">Name Setting</string>
     <string name="replace">Replace</string>
+    <string name="goal_setting">Goal Setting</string>
+    <string name="how_to_achieve_your_goals">How to achieve your goals...</string>
+    <string name="our_privacy_policy">Our Privacy Policy</string>
+    <string name="most_important_points_to_note">Most Important Points to Note:</string>
 </resources>
