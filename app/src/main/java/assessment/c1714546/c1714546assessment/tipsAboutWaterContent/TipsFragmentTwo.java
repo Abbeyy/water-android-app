@@ -29,6 +29,7 @@ import assessment.c1714546.c1714546assessment.R;
 public class TipsFragmentTwo extends Fragment implements View.OnClickListener, View.OnLongClickListener {
     private AppCompatEditText emailEditText;
     private AppCompatEditText messageEditText;
+    private AppCompatEditText phoneNumberEditText;
 
     public TipsFragmentTwo() {
 
@@ -44,12 +45,16 @@ public class TipsFragmentTwo extends Fragment implements View.OnClickListener, V
         this.emailEditText.setOnClickListener(this);
         this.messageEditText = (AppCompatEditText)v.findViewById(R.id.message_content);
         this.messageEditText.setOnClickListener(this);
+        this.phoneNumberEditText = (AppCompatEditText)v.findViewById(R.id.phone_number);
+        this.phoneNumberEditText.setOnClickListener(this);
 
         // Accessing buttons and setting onClickListeners.
         AppCompatButton sendEmailBtn = (AppCompatButton)v.findViewById(R.id.send_email_btn);
         sendEmailBtn.setOnClickListener(this);
         AppCompatButton resetBtn = (AppCompatButton)v.findViewById(R.id.reset_btn);
         resetBtn.setOnLongClickListener(this);
+        AppCompatButton callPhoneBtn = (AppCompatButton)v.findViewById(R.id.call_btn);
+        callPhoneBtn.setOnClickListener(this);
 
         return v;
     }
@@ -69,6 +74,12 @@ public class TipsFragmentTwo extends Fragment implements View.OnClickListener, V
                 break;
             case R.id.send_email_btn :
                 sendAnEmail();
+                break;
+            case R.id.phone_number :
+                this.phoneNumberEditText.setText("");
+                break;
+            case R.id.call_btn :
+                callPhone();
                 break;
             default :
                 break;
@@ -121,6 +132,28 @@ public class TipsFragmentTwo extends Fragment implements View.OnClickListener, V
         } else {
             Toast.makeText(getActivity(), R.string.specify_email_warning, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void callPhone() {
+        // Get Phone Number
+        String number = this.phoneNumberEditText.getText().toString();
+        // Remove any spaces in it
+        String phone = getRidOfSpaces(number);
+        //Create call Intent
+        Intent aCallIntent = new Intent(Intent.ACTION_DIAL);
+        //Pass data to it
+        aCallIntent.setData(Uri.parse("tel:"+phone));
+        startActivity(aCallIntent);
+    }
+
+    public String getRidOfSpaces(String num) {
+        String value = "";
+
+        for(Character digit : num.toCharArray()) {
+            if(Character.isWhitespace(digit) == false)
+                value = value + digit;
+        }
+        return value;
     }
 
 }

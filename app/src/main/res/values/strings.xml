@@ -39,4 +39,7 @@
     <string name="how_to_achieve_your_goals">How to achieve your goals...</string>
     <string name="our_privacy_policy">Our Privacy Policy</string>
     <string name="most_important_points_to_note">Most Important Points to Note:</string>
+    <string name="call_a_friend_instead">Call a friend instead!</string>
+    <string name="write_their_phone_number_here">Write their phone number here...</string>
+    <string name="call">Call</string>
 </resources>
