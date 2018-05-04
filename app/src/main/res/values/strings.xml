@@ -29,4 +29,7 @@
     <string name="no_email_client">No email client is installed</string>
     <string name="enter_a_msg_warning">Please enter a message!</string>
     <string name="specify_email_warning">Please specify an email address!</string>
+    <string name="channel_one">WaterLifeOne</string>
+    <string name="channel_description">WaterLifeOne</string>
+    <string name="drunk_zero">You have drunk 0 glasses of water so far.</string>
 </resources>

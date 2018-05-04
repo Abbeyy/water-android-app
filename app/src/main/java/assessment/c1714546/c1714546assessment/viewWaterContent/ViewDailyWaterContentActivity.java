@@ -52,6 +52,9 @@ public class ViewDailyWaterContentActivity extends AppCompatActivity {
     }
 
     public void displayConsumption(AppCompatTextView showConsumption, int glassesDrunk) {
+        if (glassesDrunk == -1) {
+            showConsumption.setText(R.string.drunk_zero);
+        }
         showConsumption.setText("You have drunk " + glassesDrunk + " glasses of water so far.");
     }
 
