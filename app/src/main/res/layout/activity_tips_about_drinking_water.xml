@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<android.support.v7.widget.LinearLayoutCompat
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
     tools:context="assessment.c1714546.c1714546assessment.tipsAboutWaterContent.TipsAboutDrinkingWaterActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@color/BM">
+
+    </android.support.v7.widget.Toolbar>
 
     <FrameLayout
         android:id="@+id/tips_fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-</android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.LinearLayoutCompat>

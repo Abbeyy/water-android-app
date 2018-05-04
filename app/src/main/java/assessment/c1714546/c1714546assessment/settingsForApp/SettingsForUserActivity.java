@@ -23,6 +23,10 @@ public class SettingsForUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_for_user);
 
+        // Grab toolbar and implement.
+        Toolbar myToolbar = (Toolbar)findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+
         FragmentManager fragMgr = getSupportFragmentManager();
         FragmentTransaction fragTrns = fragMgr.beginTransaction();
         fragTrns.add(R.id.settings_fragment_container, new ListSettingsFragment()).commit();

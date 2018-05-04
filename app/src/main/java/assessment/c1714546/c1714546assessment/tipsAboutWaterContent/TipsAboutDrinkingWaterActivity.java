@@ -3,6 +3,7 @@ package assessment.c1714546.c1714546assessment.tipsAboutWaterContent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.widget.Toolbar;
 
 import assessment.c1714546.c1714546assessment.R;
 
@@ -21,6 +22,10 @@ public class TipsAboutDrinkingWaterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tips_about_drinking_water);
+
+        // Grab toolbar and implement.
+        Toolbar myToolbar = (Toolbar)findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
 
         // Needed for backwards compatibility on android's
         // back button for tabs - TipsFragOne and Two.
