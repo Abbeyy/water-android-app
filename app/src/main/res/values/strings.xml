@@ -42,4 +42,5 @@
     <string name="call_a_friend_instead">Call a friend instead!</string>
     <string name="write_their_phone_number_here">Write their phone number here...</string>
     <string name="call">Call</string>
+    <string name="submit">Submit</string>
 </resources>
