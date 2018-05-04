@@ -32,4 +32,7 @@
     <string name="channel_one">WaterLifeOne</string>
     <string name="channel_description">WaterLifeOne</string>
     <string name="drunk_zero">You have drunk 0 glasses of water so far.</string>
+    <string name="what_is_your_name">What is your name?</string>
+    <string name="name_setting">Name Setting</string>
+    <string name="replace">Replace</string>
 </resources>

@@ -11,6 +11,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -48,6 +49,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     private NotifBroadcastReceiver broadcastReceiver;
     private IntentFilter systemIntent;
+
+    private AppCompatTextView helloUser;
 
 
     @Override
@@ -97,6 +100,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         // Generate date in java.
         generateDate();
+
+        helloUser = (AppCompatTextView)findViewById(R.id.hello_text_textview);
+        displayUsersName();
     }
 
     @Override
@@ -242,4 +248,15 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         registerReceiver(this.broadcastReceiver, this.systemIntent);
         super.onResume();
     }
+
+    public void displayUsersName() {
+        SharedPreferences nameOfUser = getSharedPreferences("usersName", Context.MODE_PRIVATE);
+        String value = nameOfUser.getString("name", "error");
+        if (!value.equals("error")) {
+            this.helloUser.setText("Hello " + value +".");
+        } else {
+            this.helloUser.setEnabled(false);
+        }
+    }
+
 }

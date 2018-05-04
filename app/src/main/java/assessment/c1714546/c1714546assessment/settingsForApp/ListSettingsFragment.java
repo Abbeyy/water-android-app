@@ -39,9 +39,6 @@ public class ListSettingsFragment extends Fragment implements AdapterView.OnItem
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_settings_list, container, false);
 
-        // Place settings options into ArrayList.
-//        generateSettings();
-
         // Populate ArrayAdapter with necessary info.
         this.settingsListView = v.findViewById(R.id.settings_list_view);
         this.basicAdapter = new ArrayAdapter<String>(
@@ -58,14 +55,11 @@ public class ListSettingsFragment extends Fragment implements AdapterView.OnItem
         return v;
     }
 
-    public void generateSettings() {
-        this.settings.add("Name");
-        this.settings.add("Goal");
-        this.settings.add("Privacy Policy");
-    }
-
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        // Method replaces fragment inflated by Activity
+        // dependent on what list item the user clicked on.
+
         this.fragMgr = getActivity().getSupportFragmentManager();
         this.fragTrns = this.fragMgr.beginTransaction();
 
