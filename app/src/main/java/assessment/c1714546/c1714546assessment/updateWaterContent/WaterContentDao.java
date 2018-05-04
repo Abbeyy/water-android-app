@@ -14,16 +14,12 @@ import java.util.List;
 @Dao
 public interface WaterContentDao {
 
+    // Query: reads all records out from DB.
     @Query("SELECT * FROM watercontentrecord")
     List<WaterContentRecord> getAllWaterContentRecords();
 
-    @Query("SELECT * FROM watercontentrecord WHERE time_of_consumption = :time")
-    List<WaterContentRecord> getWaterContentRecordsByTime(String time);
-
+    // Insert: places any records given into the DB.
     @Insert
     void insertAll(WaterContentRecord... waterContentRecords);
-
-    @Query("DELETE FROM watercontentrecord")
-    void getRidOfTable();
 
 }

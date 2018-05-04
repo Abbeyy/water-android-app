@@ -10,7 +10,13 @@ import android.view.ViewGroup;
 import assessment.c1714546.c1714546assessment.R;
 
 /**
+ * This class is a fragment which is inflated into it's
+ * parents activity's layout programatically.
+ *
  * Created by c1714546 on 5/3/2018.
+ *
+ * @author Abbey Ross, 04/04/2018.
+ * @version 1.0.
  */
 
 public class TipsFragmentOne extends Fragment {

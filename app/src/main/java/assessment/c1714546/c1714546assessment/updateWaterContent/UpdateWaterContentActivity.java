@@ -23,6 +23,16 @@ import java.util.List;
 import assessment.c1714546.c1714546assessment.R;
 import assessment.c1714546.c1714546assessment.viewWaterContent.ViewDailyWaterContentActivity;
 
+/**
+ * Activity for user to update their daily
+ * water content intake. They can travel back to
+ * HomeActivity or travel further onto ViewActivity.
+ *
+ * Created by c1714546 on 5/3/2018.
+ *
+ * @author Abbey Ross, 04/04/2018.
+ * @version 1.0.
+ */
 public class UpdateWaterContentActivity extends AppCompatActivity implements View.OnClickListener {
     private WaterContentDatabase wcd;
     private String timeNow;
@@ -32,7 +42,6 @@ public class UpdateWaterContentActivity extends AppCompatActivity implements Vie
     private AppCompatButton submitBtn;
     private AppCompatButton viewActivityBtn;
     private List<WaterContentRecord> recordObjects = new ArrayList<WaterContentRecord>();
-    private int totalGlassesDrunk;
     private AppCompatTextView genTime;
 
     @Override
@@ -40,7 +49,7 @@ public class UpdateWaterContentActivity extends AppCompatActivity implements Vie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_water_content);
 
-        // Setup the database.
+        // Setup the Database.
         this.wcd = Room.databaseBuilder(
                 getApplicationContext(),
                 WaterContentDatabase.class,
@@ -50,20 +59,25 @@ public class UpdateWaterContentActivity extends AppCompatActivity implements Vie
         todaysWaterHistory = getSharedPreferences("waterHistory", Context.MODE_PRIVATE);
         editAddWaterHistory = todaysWaterHistory.edit();
 
+        // Setup and implement toolbar.
         Toolbar myToolbar = (Toolbar)findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
+        // Generate time on page.
         genTime = (AppCompatTextView)findViewById(R.id.gen_time);
         generateTime();
 
+        // Access submit button and set onClickListener.
         submitBtn = (AppCompatButton)findViewById(R.id.submit_btn);
         submitBtn.setEnabled(true);
         submitBtn.setOnClickListener(this);
 
+        // Access next-page button and set onClickListener.
         viewActivityBtn = (AppCompatButton)findViewById(R.id.launch_view_activity_btn);
         viewActivityBtn.setEnabled(false);
         viewActivityBtn.setOnClickListener(this);
 
+        // Access edittext to be used by user.
         getGlasses = (AppCompatEditText)findViewById(R.id.get_glasses);
     }
 
@@ -83,25 +97,28 @@ public class UpdateWaterContentActivity extends AppCompatActivity implements Vie
 
         switch (btnId) {
             case R.id.submit_btn :
-                //Disables button to ensure user can
-                //only enter one entry per activity-load
-                //due to the time being generated on
-                //the loading of the activity.
+                // Disables button to ensure user can
+                // only enter one entry per activity-load
+                // due to the time being generated on
+                // the loading of the activity.
                 submitBtn.setEnabled(false);
                 viewActivityBtn.setEnabled(true);
 
-                //Use Room to communicate with SQLite DB
-                //to store history of user's water content
-                //consumption.
+                // Use Room to communicate with SQLite DB
+                // to store full history of user's water content
+                // consumption.
                 final int numberOfGlasses = Integer.parseInt(this.getGlasses.getText().toString());
                 final String time = this.timeNow;
                 final WaterContentRecord record = new WaterContentRecord(numberOfGlasses, time);
                 recordObjects.add(record);
 
-                //Store the total number of glasses
-                // drunk on sharedprefs for use in other activity...
+                // Store the total number of glasses
+                // drunk in SharedPrefs for use in "Viewing" activity...
                 updateSharedPrefs(numberOfGlasses);
 
+                // Method currently inserts data as new
+                // record into database, and reads all records
+                // back out and logs them.
                 AsyncTask.execute(new Runnable() {
                     @Override
                     public void run() {
@@ -117,6 +134,8 @@ public class UpdateWaterContentActivity extends AppCompatActivity implements Vie
                 });
                 break;
             case R.id.launch_view_activity_btn :
+                // When button is enabled again, it can be clicked,
+                // so upon it's click the ViewWaterActivity is started.
                 Intent launchViewDailyWaterContentActivity = new Intent(this, ViewDailyWaterContentActivity.class);
                 startActivity(launchViewDailyWaterContentActivity);
                 break;

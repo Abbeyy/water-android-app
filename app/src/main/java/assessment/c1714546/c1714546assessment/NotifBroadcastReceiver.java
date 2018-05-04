@@ -13,7 +13,15 @@ import android.support.v4.app.NotificationManagerCompat;
 import assessment.c1714546.c1714546assessment.updateWaterContent.UpdateWaterContentActivity;
 
 /**
- * Created by c1714546 on 5/4/2018.
+ * Class is my own custom BroadcastReceiver.
+ * Currently set to execute onReceive when
+ * Android device receives power.  Produces
+ * a notification to remind user to use the app.
+ *
+ * Created by c1714546 on 5/3/2018.
+ *
+ * @author Abbey Ross, 04/04/2018.
+ * @version 1.0.
  */
 
 public class NotifBroadcastReceiver extends BroadcastReceiver {
@@ -31,6 +39,7 @@ public class NotifBroadcastReceiver extends BroadcastReceiver {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
 
+        // Customising the notification.
         NotificationCompat.Builder notifBuilder = new NotificationCompat.Builder(context, "Channel One")
                 .setSmallIcon(R.drawable.ic_water_content_24dp)
                 .setContentTitle("Water Life Daily Consumption")
@@ -42,14 +51,13 @@ public class NotifBroadcastReceiver extends BroadcastReceiver {
                 .setAutoCancel(true);
 
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
-
-        // notificationId is a unique int for each notification that you must define
         notificationManager.notify(1, notifBuilder.build());
     }
 
     // Method adapted from :
     // https://developer.android.com/training/notify-user/build-notification
     private void createNotificationChannel(Context context) {
+
         // Create the NotificationChannel, but only on API 26+ because
         // the NotificationChannel class is new and not in the support library
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

@@ -15,7 +15,15 @@ import android.widget.Toast;
 import assessment.c1714546.c1714546assessment.R;
 
 /**
+ * This class is a fragment which is inflated into it's
+ * parents activity's layout programatically. It includes
+ * the ability for the user to send an email via an
+ * implicit Intent.
+ *
  * Created by c1714546 on 5/3/2018.
+ *
+ * @author Abbey Ross, 04/04/2018.
+ * @version 1.0.
  */
 
 public class TipsFragmentTwo extends Fragment implements View.OnClickListener, View.OnLongClickListener {
@@ -31,11 +39,13 @@ public class TipsFragmentTwo extends Fragment implements View.OnClickListener, V
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.tips_fragment_two_layout, container, false);
 
+        // Grabbing edittexts to be able to retrieve user's input.
         this.emailEditText = (AppCompatEditText)v.findViewById(R.id.email_content);
         this.emailEditText.setOnClickListener(this);
         this.messageEditText = (AppCompatEditText)v.findViewById(R.id.message_content);
         this.messageEditText.setOnClickListener(this);
 
+        // Accessing buttons and setting onClickListeners.
         AppCompatButton sendEmailBtn = (AppCompatButton)v.findViewById(R.id.send_email_btn);
         sendEmailBtn.setOnClickListener(this);
         AppCompatButton resetBtn = (AppCompatButton)v.findViewById(R.id.reset_btn);
@@ -46,6 +56,8 @@ public class TipsFragmentTwo extends Fragment implements View.OnClickListener, V
 
     @Override
     public void onClick(View v) {
+        // This method clears an EditText of writing
+        // should the user click on it.
         int viewComponentId = v.getId();
 
         switch (viewComponentId) {
@@ -65,6 +77,8 @@ public class TipsFragmentTwo extends Fragment implements View.OnClickListener, V
 
     @Override
     public boolean onLongClick(View v) {
+        // This method clears all EditTexts of
+        // writing as a Reset feature.
         this.emailEditText.setText("");
         this.messageEditText.setText("");
         return false;

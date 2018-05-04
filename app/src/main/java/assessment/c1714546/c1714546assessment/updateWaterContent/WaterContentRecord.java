@@ -5,9 +5,15 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
 /**
+ * Entity describing a user's entry into the application
+ * of their daily water intake e.g. time of entry and
+ * number of glasses of water consumed since last entry.
+ *
  * Created by c1714546 on 5/3/2018.
+ *
+ * @author Abbey Ross, 04/04/2018.
+ * @version 1.0.
  */
-
 @Entity
 public class WaterContentRecord {
     public static int numOfRecs;
