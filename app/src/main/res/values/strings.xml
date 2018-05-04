@@ -12,7 +12,7 @@
     <string name="water_since_last_entry">How much water have you had since you last recorded an entry?</string>
     <string name="number_full_glasses">(Please enter an integer for the number of full glasses)</string>
     <string name="your_daily_water_content_breakdown">Your daily water content breakdown:</string>
-    <string name="todays_consumption_btn">View today's history</string>
+    <string name="todays_consumption_btn">View today\'s history</string>
     <string name="water_consumption_tips">Water Consumption Tips</string>
     <string name="tip_one">Tip #1: Drinking a pint of water in one go is not easy. Our advice is to sip at your glass! You could use a straw to help with this.</string>
     <string name="tip_two">Tip #2: Pace yourself through the day. Use a water bottle to mark where you want to be at what time.</string>
@@ -23,7 +23,6 @@
     <string name="who_do_you_want_to_email">Who do you want to email?</string>
     <string name="enter_email_address_here">Enter email address here...</string>
     <string name="what_do_you_want_to_share">What do you want to share?</string>
-    <string name="share">Share</string>
     <string name="write_your_message_here">Write your message here...</string>
     <string name="reset">Reset</string>
     <string name="no_email_client">No email client is installed</string>
@@ -43,4 +42,6 @@
     <string name="write_their_phone_number_here">Write their phone number here...</string>
     <string name="call">Call</string>
     <string name="submit">Submit</string>
+    <string name="share">Share</string>
+    <string name="tips">Tips</string>
 </resources>

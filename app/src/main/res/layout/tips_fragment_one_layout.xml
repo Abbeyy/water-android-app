@@ -19,7 +19,7 @@
         android:gravity="center"
         android:orientation="vertical"
         android:background="@color/BL"
-        android:padding="15dp">
+        android:padding="@dimen/fifteen_dp_padding">
 
         <android.support.v7.widget.AppCompatTextView
             android:textSize="@dimen/twenty_dp_textsizing"
@@ -35,7 +35,7 @@
         android:gravity="center"
         android:orientation="vertical"
         android:background="@color/BM"
-        android:padding="15dp">
+        android:padding="@dimen/fifteen_dp_padding">
 
         <android.support.v7.widget.AppCompatTextView
             android:textSize="@dimen/twenty_dp_textsizing"
@@ -51,7 +51,7 @@
         android:gravity="center"
         android:orientation="vertical"
         android:background="@color/BL"
-        android:padding="15dp">
+        android:padding="@dimen/fifteen_dp_padding">
 
         <android.support.v7.widget.AppCompatTextView
             android:textSize="@dimen/twenty_dp_textsizing"
@@ -67,7 +67,7 @@
         android:gravity="center"
         android:orientation="vertical"
         android:background="@color/BM"
-        android:padding="15dp">
+        android:padding="@dimen/fifteen_dp_padding">
 
         <android.support.v7.widget.AppCompatTextView
             android:textSize="@dimen/twenty_dp_textsizing"
@@ -83,7 +83,7 @@
         android:gravity="center"
         android:orientation="vertical"
         android:background="@color/BL"
-        android:padding="15dp">
+        android:padding="@dimen/fifteen_dp_padding">
 
         <android.support.v7.widget.AppCompatTextView
             android:textSize="@dimen/twenty_dp_textsizing"

@@ -5,4 +5,8 @@
     <dimen name="twentytwo_text">22sp</dimen>
     <dimen name="twenty_dp_padding">20dp</dimen>
     <dimen name="twenty_dp_textsizing">20dp</dimen>
+    <dimen name="fifteen_dp_padding">15dp</dimen>
+    <dimen name="twenty_dp_height">20dp</dimen>
+    <dimen name="fourty_dp_height">40dp</dimen>
+    <dimen name="fiftyfive_dp_height">55dp</dimen>
 </resources>

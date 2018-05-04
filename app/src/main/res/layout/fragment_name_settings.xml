@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="15dp">
+    android:padding="@dimen/fifteen_dp_padding">
 
     <android.support.v7.widget.AppCompatTextView
         android:textSize="@dimen/twentytwo_text"
@@ -15,7 +15,7 @@
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="40dp" />
+        android:layout_height="@dimen/fourty_dp_height" />
 
     <android.support.v7.widget.AppCompatTextView
         android:textSize="@dimen/twenty_dp_textsizing"
@@ -26,14 +26,14 @@
     <android.support.v7.widget.AppCompatEditText
         android:id="@+id/users_name"
         android:textSize="@dimen/twenty_dp_textsizing"
-        android:padding="10dp"
+        android:padding="@dimen/ten_dp_padding"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:lines="1"/>
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="40dp" />
+        android:layout_height="@dimen/fourty_dp_height" />
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/replace_name_btn"

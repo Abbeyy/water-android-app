@@ -34,13 +34,13 @@
         <android.support.v7.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="@dimen/ten_dp_padding"
             android:text="@string/update_daily_water_below"
             android:textSize="@dimen/twentytwo_text" />
         
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="@dimen/twenty_dp_height" />
 
         <android.support.v7.widget.AppCompatTextView
             android:textSize="@dimen/twenty_dp_textsizing"
@@ -50,7 +50,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="@dimen/twenty_dp_height" />
 
         <android.support.v7.widget.AppCompatTextView
             android:padding="@dimen/ten_dp_padding"
@@ -75,7 +75,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="20dp" />
+            android:layout_height="@dimen/twenty_dp_height" />
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/submit_btn"
