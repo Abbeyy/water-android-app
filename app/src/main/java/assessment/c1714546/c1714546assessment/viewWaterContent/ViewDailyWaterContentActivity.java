@@ -91,7 +91,7 @@ public class ViewDailyWaterContentActivity extends AppCompatActivity {
                 startActivity(launchUpdateWaterContentActivity);
                 break;
             case R.id.view_water_icon :
-                Toast.makeText(this, "Remaining on View Daily Water Content page...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.remain_view_water, Toast.LENGTH_SHORT).show();
                 break;
             case R.id.tips_icon :
                 Intent launchTipsAboutWaterContentActivity = new Intent(this, TipsAboutDrinkingWaterActivity.class);

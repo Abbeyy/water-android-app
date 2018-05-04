@@ -143,7 +143,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (actionID) {
             case R.id.home_activity_icon :
-                Toast.makeText(this, "Remaining on Home page...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.remain_home_page, Toast.LENGTH_SHORT).show();
                 break;
             case R.id.update_water_icon :
                 Intent launchUpdateWaterContentActivity = new Intent(this, UpdateWaterContentActivity.class);
@@ -173,25 +173,25 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (itemID) {
             case R.id.home_title :
-                Toast.makeText(this, "Remaining on Home page...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.remain_home_page, Toast.LENGTH_SHORT).show();
                 break;
             case R.id.update_water_content_title :
-                Toast.makeText(this, "Launching update water content...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.launch_update_water, Toast.LENGTH_SHORT).show();
                 Intent launchUpdateWaterContentActivity = new Intent(this, UpdateWaterContentActivity.class);
                 startActivity(launchUpdateWaterContentActivity);
                 break;
             case R.id.view_daily_water_content_title :
-                Toast.makeText(this, "Launching view daily water content...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.launch_view_water, Toast.LENGTH_SHORT).show();
                 Intent launchViewDailyWaterContentActivity = new Intent(this, ViewDailyWaterContentActivity.class);
                 startActivity(launchViewDailyWaterContentActivity);
                 break;
             case R.id.tips_title :
-                Toast.makeText(this, "Launching tips about water content...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.launch_tips, Toast.LENGTH_SHORT).show();
                 Intent launchTipsAboutWaterContentActivity = new Intent(this, TipsAboutDrinkingWaterActivity.class);
                 startActivity(launchTipsAboutWaterContentActivity);
                 break;
             case R.id.settings_title :
-                Toast.makeText(this, "Launching settings...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.launch_settings, Toast.LENGTH_SHORT).show();
                 Intent launchSettingsForUserActivity = new Intent(this, SettingsForUserActivity.class);
                 startActivity(launchSettingsForUserActivity);
                 break;

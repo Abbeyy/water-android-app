@@ -185,7 +185,7 @@ public class UpdateWaterContentActivity extends AppCompatActivity implements Vie
                 startActivity(launchHomeActivity);
                 break;
             case R.id.update_water_icon :
-                Toast.makeText(this, "Remaining on Update Water Content page...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.remain_update_water, Toast.LENGTH_SHORT).show();
                 break;
             case R.id.view_water_icon :
                 Intent launchViewDailyWaterContentActivity = new Intent(this, ViewDailyWaterContentActivity.class);

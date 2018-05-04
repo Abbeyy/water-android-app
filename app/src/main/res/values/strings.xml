@@ -44,4 +44,17 @@
     <string name="submit">Submit</string>
     <string name="share">Share</string>
     <string name="tips">Tips</string>
+    <string name="remain_home_page">Remaining on Home page...</string>
+    <string name="launch_update_water">Launching update water content...</string>
+    <string name="launch_view_water">Launching view daily water content...</string>
+    <string name="launch_tips">Launching tips about water content...</string>
+    <string name="launch_settings">Launching settings...</string>
+    <string name="remain_view_water">Remaining on View Daily Water Content page...</string>
+    <string name="remain_update_water">Remaining on Update Water Content page...</string>
+    <string name="share_water_life_app">Sharing from WaterLife Android App</string>
+    <string name="remain_tips">Remaining on Tips About Water Content tabs...</string>
+    <string name="remain_settings">Remaining on Settings pages...</string>
+    <string name="user_clicked_name">User clicked on Name setting...</string>
+    <string name="user_clicked_goal">User clicked on Goal setting...</string>
+    <string name="user_clicked_privacy">User clicked on Privacy Policy...</string>
 </resources>

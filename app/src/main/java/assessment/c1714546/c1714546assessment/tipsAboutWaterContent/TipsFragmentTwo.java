@@ -114,7 +114,7 @@ public class TipsFragmentTwo extends Fragment implements View.OnClickListener, V
                 anEmailIntent.putExtra(Intent.EXTRA_EMAIL, emailAddress);
 
                 //Express the Subject
-                anEmailIntent.putExtra(Intent.EXTRA_SUBJECT, "Sharing from WaterLife Android App");
+                anEmailIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share_water_life_app));
 
                 //Place the message content
                 anEmailIntent.putExtra(Intent.EXTRA_TEXT, text);

@@ -70,7 +70,7 @@ public class TipsAboutDrinkingWaterActivity extends AppCompatActivity {
                 startActivity(launchViewDailyWaterContentActivity);
                 break;
             case R.id.tips_icon :
-                Toast.makeText(this, "Remaining on Tips About Water Content tabs...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.remain_tips, Toast.LENGTH_SHORT).show();
                 break;
             case R.id.settings_icon :
                 Intent launchSettingsForUserActivity = new Intent(this, SettingsForUserActivity.class);

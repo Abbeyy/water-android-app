@@ -67,7 +67,7 @@ public class SettingsForUserActivity extends AppCompatActivity {
                 startActivity(launchTipsAboutWaterContentActivity);
                 break;
             case R.id.settings_icon :
-                Toast.makeText(this, "Remaining on Settings pages...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.remain_settings, Toast.LENGTH_SHORT).show();
                 break;
             default :
                 break;

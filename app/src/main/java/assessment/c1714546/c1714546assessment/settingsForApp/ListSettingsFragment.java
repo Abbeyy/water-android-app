@@ -66,17 +66,17 @@ public class ListSettingsFragment extends Fragment implements AdapterView.OnItem
         switch (position) {
             case 0 :
                 NameSettingsFragment nameFrag = new NameSettingsFragment();
-                Toast.makeText(getActivity(), "User clicked on Name setting...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), R.string.user_clicked_name, Toast.LENGTH_SHORT).show();
                 this.fragTrns.replace(R.id.settings_fragment_container, nameFrag).addToBackStack(NameSettingsFragment.class.toString()).commit();
                 break;
             case 1 :
                 GoalSettingsFragment goalFrag = new GoalSettingsFragment();
-                Toast.makeText(getActivity(), "User clicked on Goal setting...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), R.string.user_clicked_goal, Toast.LENGTH_SHORT).show();
                 this.fragTrns.replace(R.id.settings_fragment_container, goalFrag).addToBackStack(GoalSettingsFragment.class.toString()).commit();
                 break;
             case 2 :
                 PrivacyPolicyFragment privFrag = new PrivacyPolicyFragment();
-                Toast.makeText(getActivity(), "User clicked on Privacy Policy...", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), R.string.user_clicked_privacy, Toast.LENGTH_SHORT).show();
                 this.fragTrns.replace(R.id.settings_fragment_container, privFrag).addToBackStack(PrivacyPolicyFragment.class.toString()).commit();
                 break;
             default :
